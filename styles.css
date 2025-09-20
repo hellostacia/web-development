@@ -78,7 +78,7 @@ nav a:hover {
   margin-bottom: 40px;
 }
 
-.advantages h3 {
+.advantages h2 {
   font-size: 20px;
   color: #2c3e50;
   font-weight: 600;
@@ -97,7 +97,7 @@ nav a:hover {
 }
 
 /* Популярные блюда */
-.popular h3 {
+.popular h2 {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 15px;
@@ -152,4 +152,5 @@ footer a {
 
 footer a:hover {
   color: #ffffff;
+
 }
