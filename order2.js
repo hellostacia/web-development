@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const categories = [
       { key: "soups", name: "Суп" },
-      { key: "main_course", name: "Главное блюдо" },
+      { key: "main-course", name: "Главное блюдо" },
       { key: "salad", name: "Салат/стартер" },
       { key: "beverages", name: "Напиток" },
       { key: "dessert", name: "Десерт"}
@@ -79,5 +79,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Вызываем при загрузке страницы
   updateOrder();
-});
-
+})

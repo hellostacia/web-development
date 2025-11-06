@@ -1,15 +1,15 @@
+let dishes = []; // глобально, доступно всем скриптам
+
 document.addEventListener("DOMContentLoaded", async () => {
   const categoryMap = {
-    soups: document.querySelector(".soups .menu-grid"),
-    main_course: document.querySelector(".main-dishes .menu-grid"),
+    soup: document.querySelector(".soups .menu-grid"),
+    "main-course": document.querySelector(".main-dishes .menu-grid"),
     salad: document.querySelector(".salads .menu-grid"),
-    beverages: document.querySelector(".drinks .menu-grid"),
+    drink: document.querySelector(".drinks .menu-grid"),
     dessert: document.querySelector(".desserts .menu-grid")
   };
 
-  let dishes = [];
-
-  // === 1. Загружаем данные с API ===
+  // === 1. Получаем данные с API ===
   try {
     const response = await fetch("https://edu.std-900.ist.mospolytech.ru/labs/api/dishes");
     if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  // === 2. Сортировка по имени ===
+  // Сортировка по имени
   dishes.sort((a, b) => a.name.localeCompare(b.name));
 
-  // === 3. Функция отрисовки ===
+  // === 2. Функция отрисовки карточек ===
   function renderDishes(category, kind = null) {
     const container = categoryMap[category];
     if (!container) return;
@@ -53,24 +53,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
-  // === 4. Отобразим все блюда по категориям ===
+  // === 3. Отображаем все блюда по категориям ===
   Object.keys(categoryMap).forEach(cat => renderDishes(cat));
 
-  // === 5. Фильтры ===
+  // === 4. Фильтры ===
   document.querySelectorAll(".filters button").forEach(btn => {
     btn.addEventListener("click", () => {
       const section = btn.closest("section");
       const category = Object.keys(categoryMap).find(key => categoryMap[key] === section.querySelector(".menu-grid"));
       const wasActive = btn.classList.contains("active");
-
-      // убираем класс active со всех кнопок
       section.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
-
       if (wasActive) {
-        // если фильтр повторно нажат — показываем все блюда
         renderDishes(category);
       } else {
-        // активируем фильтр и показываем только выбранный тип
         btn.classList.add("active");
         renderDishes(category, btn.dataset.kind);
       }

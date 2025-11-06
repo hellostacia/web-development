@@ -1,9 +1,9 @@
 /* Блок с блюдами */
-  .menu-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 10px;
-  }
+.menu-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+column-gap: 10px;
+}
 
 .soups h2 {
   color: #2c3e50;
@@ -13,7 +13,15 @@
   color: #2c3e50;
 }
 
+.salads h2 {
+  color: #2c3e50;
+}
+
 .drinks h2 {
+  color: #2c3e50;
+}
+
+.desserts h2 {
   color: #2c3e50;
 }
 
@@ -243,8 +251,6 @@ button[type="submit"]:hover {
   margin: 5px 0 10px;
 }
 
-
-
 /* Блок выбранных блюд */
 .order-summary {
   margin-bottom: 30px;
@@ -282,3 +288,124 @@ button[type="submit"]:hover {
   color: #2c80c4;
 }
 
+/* Фильтры */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  background-color: #f1eee9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #2c80c4;
+  color: #fff;
+}
+
+.filters button.active {
+  background-color: #2c80c4;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Ланчи */
+.lunch-preview {
+  padding: 20px 0;
+}
+
+.lunch-preview h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  color: #2c3e50;
+}
+
+.lunch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.lunch-card {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  flex-wrap: wrap;
+}
+
+.lunch-dish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+}
+
+.lunch-dish img {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.lunch-dish img:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.lunch-dish p {
+  margin: 5px 0 0 0;
+}
+
+.lunch-dish p.dessert-info {
+  font-size: 0.8em;
+}
+
+/* Уведомления */
+.order-notification {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.notification-content {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+}
+
+.notification-content p {
+  margin-bottom: 15px;
+}
+
+.notification-content button {
+  padding: 8px 20px;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
